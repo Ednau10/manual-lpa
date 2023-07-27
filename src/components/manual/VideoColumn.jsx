@@ -1,23 +1,28 @@
-//scr/components/manual/VideoColumn.jsx
+// src/components/manual/VideoColumn.jsx
 import React from 'react';
-import { Column, Video } from './VideoColumn.styled';
 
 const VideoColumn = ({ topics, selectedTopic }) => {
-  const selectedVideoLink =
-    topics.find((topic) => topic.numberTopic === selectedTopic?.numberTopic)?.videoLink ||
-    'https://www.example.com/defaultVideo';
+  if (!selectedTopic) {
+    return null; // No hay tema seleccionado, no se muestra nada
+  }
+
+  const selectedTopicData = topics.find((topic) => topic.id === selectedTopic);
+
+  if (!selectedTopicData) {
+    return null; // No se encontró el tema seleccionado en la lista de temas
+  }
 
   return (
-    <Column>
+    <div className="video-column">
+      {/* Aquí mostramos el video */}
       <iframe
-        width="560"
+        width="300"
         height="315"
-        src={selectedVideoLink}
-        title="Video explicativo"
-        frameBorder="0"
+        src={selectedTopicData.videoUrl}
+        
         allowFullScreen
       ></iframe>
-    </Column>
+    </div>
   );
 };
 

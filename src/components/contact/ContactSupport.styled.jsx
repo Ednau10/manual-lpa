@@ -2,13 +2,20 @@
 import styled from 'styled-components';
 
 export const ContactButton = styled.button`
-  background-color: #007bff;
-  color: #930707;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+"Lucida Sans", "Arial", "sans-serif";
+font-size: 10px;
+background-color: rgb(2, 51, 141);
+color: #fff;
+border: none;
+padding: 10px 10px;
+margin: 5px;
+cursor: pointer;
+border-radius: 25px;
+right:20px;
+position: fixed;
+  bottom: 20px;
+  right: 20px;
 `;
 
 export const ContactModal = styled.div`

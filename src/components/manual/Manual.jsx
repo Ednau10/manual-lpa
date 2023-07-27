@@ -22,26 +22,45 @@ const Manual = () => {
 
   return (
     <Container>
-      <Main>
-        <MenuColumn
-          topics={selectedProfile?.topics || []} // Check selectedProfile before passing topics
-          selectedTopic={selectedTopic}
-          handleTopicChange={handleTopicChange} // Correct prop name to handleTopicChange
-        />
-        {selectedTopic && (
-          <>
-            <InstructionsColumn
-              topics={selectedProfile?.topics || []} // Check selectedProfile before passing topics
-              selectedTopic={selectedTopic}
-            />
-            <VideoColumn
-              topics={selectedProfile?.topics || []} // Check selectedProfile before passing topics
-              selectedTopic={selectedTopic}
-            />
-          </>
-        )}
+    
+        <section className="content-section">
+          <div className="menu-column">
+            {/* Menú para listado de temas se cargarán dinámicamente desde el JSON */}
+            <ul className="menu-list">
+              {manualData.topics.map((topic) => (
+                <li key={topic.id} onClick={() => handleTopicChange(topic)}>
+                  {topic.title}
+                </li>
+              ))}
+            </ul>
+          </div>
+          {selectedTopic && (
+            <>
+              <div className="instructions-column">
+                {/* Indicaciones para realizar el proceso */}
+                <h6 className="miniTitle">{selectedTopic.title}</h6>
+                <h4 className="title">Indicaciones</h4>
+                <div className="textIndications">
+                  <p>{selectedTopic.instructions}</p>
+                </div>
+              </div>
+              <div className="video-column ">
+                {/* Video explicativo se cargarán dinámicamente desde el JSON */}
+                <iframe
+                  width="560"
+                  height="315"
+                  src={selectedTopic.video}
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </>
+          )}
+        </section>
+
         <NavigationButtons />
-      </Main>
+        
+      
     </Container>
   );
 };

@@ -1,4 +1,13 @@
 /* aquí */
+:root {
+  --main-color: #930707; /*color de letra titulo*/
+  --main-bg-color: #f7a7b9; /*color de fondo*/
+  --second-color: rgb(2, 51, 141); /*color azul*/
+  --rest-color: #edeaea; /*color gris barra izq*/
+  --rest-color: #555; /*otro gris*/
+  
+}
+
 body {
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", "Arial", "sans-serif";
     margin: 0;

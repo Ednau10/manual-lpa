@@ -1,22 +1,22 @@
-//scr/components/manual/MenuColumn.jsx
+// scr/components/manual/MenuColumn.jsx
 import React from 'react';
-import { Column, MenuList, MenuListItem } from './MenuColumn.styled';
+import { MenuContainer, MenuList } from './MenuColumn.styled';
 
 const MenuColumn = ({ topics, selectedTopic, handleTopicChange }) => {
   return (
-    <Column key="menuColumn">
+    <MenuContainer>
       <MenuList>
         {topics.map((topic) => (
-          <MenuListItem
-            key={topic.numberTopic}
-            selected={selectedTopic?.numberTopic === topic.numberTopic}
+          <li
+            key={topic.id}
             onClick={() => handleTopicChange(topic)}
+            className={selectedTopic === topic ? 'active' : ''}
           >
-            {topic.desc}
-          </MenuListItem>
+            {topic.title}
+          </li>
         ))}
       </MenuList>
-    </Column>
+    </MenuContainer>
   );
 };
 
